@@ -19,10 +19,6 @@ melos:
       description: Get all dependencies.
       exec: melos bootstrap
 
-    get:
-      description: Get all dependencies.
-      exec: dart pub get
-
     fix:
       description: Fix source code.
       exec: dart fix --apply
@@ -33,4 +29,4 @@ melos:
 
     clean:
       description: Clean all packages.
-      exec: flutter clean
+      exec: melos clean
