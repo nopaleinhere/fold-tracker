@@ -1,19 +1,36 @@
 name: fold_tracker
-description: "A new Flutter project."
-publish_to: 'none'
-version: 0.1.0+1
+description: Fold Tracker Monorepo
+publish_to: "none"
 
 environment:
-  sdk: ^3.11.3
+  sdk: '^3.11.3'
 
-dependencies:
-  flutter:
-    sdk: flutter
+workspace:
+  - apps/**
+  - packages/**
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^6.0.0
+  melos: ^7.5.0
+  very_good_analysis: ^10.2.0
 
-flutter:
-  uses-material-design: true
+melos:
+  scripts:
+    install:
+      description: Get all dependencies.
+      exec: melos bootstrap
+
+    get:
+      description: Get all dependencies.
+      exec: dart pub get
+
+    fix:
+      description: Fix source code.
+      exec: dart fix --apply
+
+    format:
+      description: Format source code.
+      exec: dart format .
+
+    clean:
+      description: Clean all packages.
+      exec: flutter clean

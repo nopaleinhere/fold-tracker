@@ -1,0 +1,15 @@
+name: fold_tracker
+
+packages:
+  - apps/**
+  - packages/**
+
+scripts:
+  analyze:
+    run: melos exec -- flutter analyze
+
+  test:
+    run: melos exec -- flutter test
+
+  clean:
+    run: melos exec -- flutter clean
