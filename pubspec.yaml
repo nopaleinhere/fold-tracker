@@ -6,27 +6,12 @@ environment:
   sdk: '^3.11.3'
 
 workspace:
-  - apps/**
-  - packages/**
+  - apps/mobile
+  - packages/core
+  - packages/core_ui
+  - packages/feature_habit
+  - packages/shared
 
 dev_dependencies:
   melos: ^7.5.0
   very_good_analysis: ^10.2.0
-
-melos:
-  scripts:
-    install:
-      description: Get all dependencies.
-      exec: melos bootstrap
-
-    fix:
-      description: Fix source code.
-      exec: dart fix --apply
-
-    format:
-      description: Format source code.
-      exec: dart format .
-
-    clean:
-      description: Clean all packages.
-      exec: melos clean
