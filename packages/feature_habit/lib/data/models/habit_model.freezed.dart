@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HabitModel {
 
- String get id; String get title; String get description; bool get isCompleted;
+ String get id; String get title; String get description; bool get isFavorite; bool get isCompleted;
 /// Create a copy of HabitModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $HabitModelCopyWith<HabitModel> get copyWith => _$HabitModelCopyWithImpl<HabitMo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HabitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HabitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,isCompleted);
+int get hashCode => Object.hash(runtimeType,id,title,description,isFavorite,isCompleted);
 
 @override
 String toString() {
-  return 'HabitModel(id: $id, title: $title, description: $description, isCompleted: $isCompleted)';
+  return 'HabitModel(id: $id, title: $title, description: $description, isFavorite: $isFavorite, isCompleted: $isCompleted)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $HabitModelCopyWith<$Res>  {
   factory $HabitModelCopyWith(HabitModel value, $Res Function(HabitModel) _then) = _$HabitModelCopyWithImpl;
 @useResult
 $Res call({
- String id, String title, String description, bool isCompleted
+ String id, String title, String description, bool isFavorite, bool isCompleted
 });
 
 
@@ -65,12 +65,13 @@ class _$HabitModelCopyWithImpl<$Res>
 
 /// Create a copy of HabitModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? isCompleted = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = null,Object? isFavorite = null,Object? isCompleted = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
+as String,isFavorite: null == isFavorite ? _self.isFavorite : isFavorite // ignore: cast_nullable_to_non_nullable
+as bool,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
@@ -156,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  bool isCompleted)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String description,  bool isFavorite,  bool isCompleted)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _HabitModel() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.isCompleted);case _:
+return $default(_that.id,_that.title,_that.description,_that.isFavorite,_that.isCompleted);case _:
   return orElse();
 
 }
@@ -177,10 +178,10 @@ return $default(_that.id,_that.title,_that.description,_that.isCompleted);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  bool isCompleted)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String description,  bool isFavorite,  bool isCompleted)  $default,) {final _that = this;
 switch (_that) {
 case _HabitModel():
-return $default(_that.id,_that.title,_that.description,_that.isCompleted);case _:
+return $default(_that.id,_that.title,_that.description,_that.isFavorite,_that.isCompleted);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +198,10 @@ return $default(_that.id,_that.title,_that.description,_that.isCompleted);case _
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  bool isCompleted)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String description,  bool isFavorite,  bool isCompleted)?  $default,) {final _that = this;
 switch (_that) {
 case _HabitModel() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.isCompleted);case _:
+return $default(_that.id,_that.title,_that.description,_that.isFavorite,_that.isCompleted);case _:
   return null;
 
 }
@@ -212,12 +213,13 @@ return $default(_that.id,_that.title,_that.description,_that.isCompleted);case _
 @JsonSerializable()
 
 class _HabitModel implements HabitModel {
-  const _HabitModel({required this.id, required this.title, required this.description, required this.isCompleted});
+  const _HabitModel({required this.id, required this.title, required this.description, required this.isFavorite, required this.isCompleted});
   factory _HabitModel.fromJson(Map<String, dynamic> json) => _$HabitModelFromJson(json);
 
 @override final  String id;
 @override final  String title;
 @override final  String description;
+@override final  bool isFavorite;
 @override final  bool isCompleted;
 
 /// Create a copy of HabitModel
@@ -233,16 +235,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HabitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HabitModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite)&&(identical(other.isCompleted, isCompleted) || other.isCompleted == isCompleted));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,isCompleted);
+int get hashCode => Object.hash(runtimeType,id,title,description,isFavorite,isCompleted);
 
 @override
 String toString() {
-  return 'HabitModel(id: $id, title: $title, description: $description, isCompleted: $isCompleted)';
+  return 'HabitModel(id: $id, title: $title, description: $description, isFavorite: $isFavorite, isCompleted: $isCompleted)';
 }
 
 
@@ -253,7 +255,7 @@ abstract mixin class _$HabitModelCopyWith<$Res> implements $HabitModelCopyWith<$
   factory _$HabitModelCopyWith(_HabitModel value, $Res Function(_HabitModel) _then) = __$HabitModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String title, String description, bool isCompleted
+ String id, String title, String description, bool isFavorite, bool isCompleted
 });
 
 
@@ -270,12 +272,13 @@ class __$HabitModelCopyWithImpl<$Res>
 
 /// Create a copy of HabitModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? isCompleted = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = null,Object? isFavorite = null,Object? isCompleted = null,}) {
   return _then(_HabitModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
+as String,isFavorite: null == isFavorite ? _self.isFavorite : isFavorite // ignore: cast_nullable_to_non_nullable
+as bool,isCompleted: null == isCompleted ? _self.isCompleted : isCompleted // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }

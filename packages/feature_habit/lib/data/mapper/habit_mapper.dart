@@ -7,6 +7,7 @@ extension HabitMapper on HabitModel {
       id: id,
       title: title,
       description: description,
+      isFavorite: isFavorite,
       isCompleted: isCompleted,
     );
   }

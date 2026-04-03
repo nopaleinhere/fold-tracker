@@ -9,6 +9,7 @@ abstract class HabitModel with _$HabitModel {
     required String id,
     required String title,
     required String description,
+    required bool isFavorite,
     required bool isCompleted,
   }) = _HabitModel;
 

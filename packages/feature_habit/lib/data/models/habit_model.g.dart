@@ -10,6 +10,7 @@ _HabitModel _$HabitModelFromJson(Map<String, dynamic> json) => _HabitModel(
   id: json['id'] as String,
   title: json['title'] as String,
   description: json['description'] as String,
+  isFavorite: json['isFavorite'] as bool,
   isCompleted: json['isCompleted'] as bool,
 );
 
@@ -18,5 +19,6 @@ Map<String, dynamic> _$HabitModelToJson(_HabitModel instance) =>
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,
+      'isFavorite': instance.isFavorite,
       'isCompleted': instance.isCompleted,
     };
