@@ -2,6 +2,7 @@ import 'package:core/base/base_state.dart';
 import 'package:feature_habit/presentation/providers/home/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shared/constants/numbers.dart';
 
 class RecentActionPage extends ConsumerWidget {
   const RecentActionPage({super.key});
@@ -16,9 +17,9 @@ class RecentActionPage extends ConsumerWidget {
       empty: () => const Center(child: Text("No recent actions")),
       error: (message) => Center(child: Text(message)),
       success: (habits) => ListView.separated(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(Numbers.sixteenPointZero),
         itemCount: habits.length,
-        separatorBuilder: (_, __) => const Divider(),
+        separatorBuilder: (_, _) => const Divider(),
         itemBuilder: (context, index) {
           final habit = habits[index];
           return ListTile(

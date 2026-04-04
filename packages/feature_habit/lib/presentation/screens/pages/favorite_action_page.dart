@@ -1,7 +1,9 @@
 import 'package:core/base/base_state.dart';
+import 'package:core_ui/theme/ft_size.dart';
 import 'package:feature_habit/presentation/providers/home/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shared/constants/numbers.dart';
 
 class FavoriteActionPage extends ConsumerWidget {
   const FavoriteActionPage({super.key});
@@ -23,19 +25,19 @@ class FavoriteActionPage extends ConsumerWidget {
         }
 
         return GridView.builder(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(FtSize.d8),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 1.2,
+            crossAxisCount: Numbers.two,
+            crossAxisSpacing: Numbers.twelvePointZero,
+            mainAxisSpacing: Numbers.twelvePointZero,
+            childAspectRatio: Numbers.onePointTwo,
           ),
           itemCount: favorites.length,
           itemBuilder: (context, index) {
             final habit = favorites[index];
             return Card(
               child: Padding(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.all(Numbers.twelvePointZero),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -48,7 +50,7 @@ class FavoriteActionPage extends ConsumerWidget {
                     Text(
                       habit.description,
                       style: Theme.of(context).textTheme.bodySmall,
-                      maxLines: 2,
+                      maxLines: Numbers.two,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],

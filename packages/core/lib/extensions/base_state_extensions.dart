@@ -1,6 +1,6 @@
 import 'package:core/base/base_state.dart';
 
-extension BaseStateExtension<T> on BaseState<T> {
+extension BaseStateExtensions<T> on BaseState<T> {
   bool get isLoading => this is Loading<T>;
 
   bool get isSuccess => this is Success<T>;

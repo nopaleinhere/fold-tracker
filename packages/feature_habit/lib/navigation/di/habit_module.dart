@@ -9,12 +9,8 @@ import 'package:feature_habit/presentation/providers/home/home_notifier.dart';
 
 void registerHabitDependencies() {
   sl.registerLazySingleton<AppRoute>(() => HabitRoute());
-
   sl.registerLazySingleton<HabitDatasource>(() => HabitDatasourceImpl());
-
   sl.registerLazySingleton<HabitRepository>(() => HabitRepositoryImpl(sl()));
-
   sl.registerLazySingleton(() => GetHabitsUseCase(sl()));
-
   sl.registerFactory(() => HomeNotifier(sl()));
 }
